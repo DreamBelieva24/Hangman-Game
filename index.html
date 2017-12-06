@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Hangman Game</title>
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Custom -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    Press Any Letter to Start
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><p><div id ="secretAnswer">
+            </div>
+  <div id = "output"></div>
+          <br>
+  
+          <h2 class= "animated zoomIn"> Guesses Left </h2>
+  
+               <div id ="guessesLeft">
+               </div>
+              <br>
+  
+          <h2 class= "animated zoomIn"> Letters Already Guessed </h2>
+  
+               <div id="answersGuessed">
+               </div>
+              <br>
+
+  
+          <div id="audio">
+          </div>
+  
+          <div id="picture">
+          </div>
+  
+  </div>
+            <div class="col-md-6">
+                <h2 class= "animated zoomIn"> Loss </h2>
+                <div id="losses">
+                 </div>
+                <br>
+            
+            <h2 class= "animated zoomIn"> Win </h2>
+                <div id= "game">
+                </div>
+                <br> 
+            </div>
+               
+            </div>
+        </div>
+    <script src="assets/javascript/game.js"></script>  
+</body>
+</html>
