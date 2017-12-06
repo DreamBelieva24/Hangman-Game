@@ -87,6 +87,7 @@ function checkAnswer(letter) {
 
 };
 
+
 function rounds() {
     
     if (letters.toString() == output.toString()) {
@@ -94,6 +95,7 @@ function rounds() {
         document.getElementById("game").innerHTML = "You Win!";
         document.body.style.background = "url('http://68.media.tumblr.com/f1a48677bbf769b2e0025d6f9f17510f/tumblr_nu7s4k101h1t2e1ono1_500.gif') no-repeat "
         document.body.style.backgroundSize = "100%";
+        document.getElementById("footer").innerHTML = '<audio id= "audio" controls autoplay src="assets/images/win.mp3"></audio>';
         document.onkeypress = function (event) {
             location.reload();}
   
@@ -101,6 +103,7 @@ function rounds() {
         document.getElementById("losses").innerHTML = "You Lose!";
         document.body.style.background = "url('https://www.zaccohn.com/images/gifs/darth-vader.gif') no-repeat "
         document.body.style.backgroundSize = "100%";
+        document.getElementById("footer").innerHTML = '<audio id= "audio" controls autoplay src="assets/images/lose.mp3"></audio>';
         document.onkeypress = function (event) {
             location.reload();
     }
