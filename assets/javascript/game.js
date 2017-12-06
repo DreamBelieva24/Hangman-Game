@@ -1,17 +1,25 @@
 // Defines Variables
-var word = ["soccer", "baseball", "football", "tennis"];
+var word = ["SOCCER", "BASEBALL", "FOOTBALL", "TENNIS"];
 var actualWord = "";
+// Picks word.
 var letters = [];
+// Used to count the letters.
 var output = [];
+// This goes on the screen.
 var wrongLetters = [];
-
 var num = 0;
 var guessesLeft = 12;
 var losses = 0;
-var wins = 0;
 
+
+
+
+document.getElementById("guessesLeft").innerHTML = guessesLeft;
 
 function gameStart() {
+    
+    var guessesLeft = 12;
+    var wrongLetters = [];
     actualWord = word[Math.floor(Math.random() * word.length)];
     // Picks word from the word array.
     letters = actualWord.split("");
@@ -21,26 +29,27 @@ function gameStart() {
 
     console.log(actualWord)
     // Answer Key in console.
-
+    
     for (var i = 0; i < num; i++) {
         output.push("__")
-    // This puts in the blanks for the word.
+    // Puts in blanks. 
+
+    document.getElementById("output").innerHTML = output.join(" "); 
+   
+    // Puts in blanks at the beginning of the game. 
     }
 } // End of function
 
-document.getElementById("secretAnswer").innerHTML = output.join(" ");
+gameStart();
+// Call Game Setup.
 
-guessesLeft = 12;
-wrongLetters = [];
-output = [];
-
-
-
-
-document.getElementById("game").innerHTML = wins;
-document.getElementById("losses").innerHTML = losses;
-document.getElementById("guessesLeft").innerHTML = guessesLeft;
-
+// Event listener
+document.onkeypress = function (event) {
+    var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
+    console.log(userGuess);
+    checkAnswer(userGuess);
+    rounds();
+};
 
 function checkAnswer(letter) {
 
@@ -48,12 +57,17 @@ function checkAnswer(letter) {
 
     for (var j = 0; j < num; j++) {
 
+        // Split by letter.
+
         if (letter == actualWord[j]) {
             letterInWord = true;
+
+            // If the letter is in the word, then change to true.
         }
     }
 
     if (letterInWord) {
+        // TRUE
         for (var j = 0; j < num; j++) {
             if (actualWord[j] == letter) {
                 output[j] = letter;
@@ -61,39 +75,33 @@ function checkAnswer(letter) {
             }
         }
     } else {
-        wrongLetters.push(letter);
-        guessesLeft--;
+        // FALSE
+        wrongLetters.push(letter); // Pushes letter to wrong letter section.
+        guessesLeft--; // Subtracts from 12 starting guesses.
     }
 
-};
-
-
-gameStart();
-
-
-function rounds() {
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
     document.getElementById("answersGuessed").innerHTML = wrongLetters;
-    document.getElementById("secretAnswer").innerHTML = output.join(" ");
+    document.getElementById("output").innerHTML = output.join(" ");
 
+};
+
+function rounds() {
+    
     if (letters.toString() == output.toString()) {
-        wins++
-        document.getElementById("game").innerHTML = wins;
-        play();
+        
+        document.getElementById("game").innerHTML = "You Win!";
+        document.onkeypress = function (event) {
+            location.reload();}
+  
     } else if (guessesLeft === 0) {
-        losses++
-        document.getElementById("losses").innerHTML = losses;
-        gameStart();
-    }
+        document.getElementById("losses").innerHTML = "You Lose!";
+        document.onkeypress = function (event) {
+            location.reload();
+    }}
+    
 };
 
-//event listener
-document.onkeypress = function (event) {
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    console.log(userGuess);
-    checkAnswer(userGuess);
-    rounds();
-};
 
 
 //music works!
