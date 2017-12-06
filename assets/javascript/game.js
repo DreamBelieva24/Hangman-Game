@@ -1,5 +1,5 @@
 // Defines Variables
-var word = ["SOCCER", "BASEBALL", "FOOTBALL", "TENNIS"];
+var word = ["JEDI", "STORMTROOPER", "EWOK", "YODA", "DARTHVADER", "LUKESKYWALKER", "CHEWBACCA"];
 var actualWord = "";
 // Picks word.
 var letters = [];
@@ -45,6 +45,7 @@ gameStart();
 
 // Event listener
 document.onkeypress = function (event) {
+   
     var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
     console.log(userGuess);
     checkAnswer(userGuess);
@@ -91,16 +92,41 @@ function rounds() {
     if (letters.toString() == output.toString()) {
         
         document.getElementById("game").innerHTML = "You Win!";
+        var audio = "<audio autoplay = 'autoplay' >" + "<source src='https://ia800202.us.archive.org/27/items/14TheBeachBoysTheWarmthOfTheSun/The%20Beach%20Boys%20-%20Good%20Vibrations.mp3'></audio>"
+        document.querySelector("#audio").innerHTML = audio;
+        document.body.style.background = "url('http://68.media.tumblr.com/f1a48677bbf769b2e0025d6f9f17510f/tumblr_nu7s4k101h1t2e1ono1_500.gif') no-repeat "
+        document.body.style.backgroundSize = "100%";
         document.onkeypress = function (event) {
             location.reload();}
   
     } else if (guessesLeft === 0) {
         document.getElementById("losses").innerHTML = "You Lose!";
+        document.body.style.background = "url('https://www.zaccohn.com/images/gifs/darth-vader.gif') no-repeat "
+        document.body.style.backgroundSize = "100%";
         document.onkeypress = function (event) {
             location.reload();
     }}
     
 };
+
+var byline = document.getElementById('byline');     // Find the H2
+bylineText = byline.innerHTML;                                      // Get the content of the H2
+bylineArr = bylineText.split('');                                   // Split content into array
+byline.innerHTML = '';                                                      // Empty current content
+
+var span;                   // Create variables to create elements
+var letter;
+
+for(i=0;i<bylineArr.length;i++){                                    // Loop for every letter
+  span = document.createElement("span");                    // Create a <span> element
+  letter = document.createTextNode(bylineArr[i]);   // Create the letter
+  if(bylineArr[i] == ' ') {                                             // If the letter is a space...
+    byline.appendChild(letter);                 // ...Add the space without a span
+  } else {
+        span.appendChild(letter);                       // Add the letter to the span
+    byline.appendChild(span);                   // Add the span to the h2
+  }
+}
 
 
 
