@@ -8,7 +8,7 @@ var output = [];
 // This goes on the screen.
 var wrongLetters = [];
 var num = 0;
-var guessesLeft = 12;
+var guessesLeft = 10;
 var losses = 0;
 
 
