@@ -85,7 +85,7 @@
  /* General styles and layout */
  body {
    background: #000 url(//cssanimation.rocks/demo/starwars/images/bg.jpg);
-   background-width: 100%;
+   
  }
  
  .starwars-demo {
@@ -147,6 +147,7 @@
     background-repeat:no-repeat;
     background-color:tan;
     font-family:  'Spectral SC', serif;
+    background-width: 100%;
  }
     
 #answersGuessed, #guessesLeft, #output { 
