@@ -85,6 +85,7 @@
  /* General styles and layout */
  body {
    background: #000 url(//cssanimation.rocks/demo/starwars/images/bg.jpg);
+   background-width: 100%;
  }
  
  .starwars-demo {
