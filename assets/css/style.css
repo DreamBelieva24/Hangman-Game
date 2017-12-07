@@ -147,9 +147,10 @@
     background-repeat:no-repeat;
     background-color:tan;
     font-family:  'Spectral SC', serif;
-    background-width: 100%;
+    background-size: 1600px;
  }
-    
+
+ 
 #answersGuessed, #guessesLeft, #output { 
     font-size: 25px;
 }
